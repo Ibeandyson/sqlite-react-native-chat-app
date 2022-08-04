@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useRef, useLayoutEffect} from 'react';
+import React, {FC, useEffect} from 'react';
 import {View, StyleSheet, Text, FlatList} from 'react-native';
 import {List, Avatar} from 'react-native-paper';
 import MessageListAappBar from '../../components/MessageListAappBar';
@@ -25,17 +25,16 @@ const MeessageListScreen: FC<MessageListProps> = ({navigation}) => {
       .catch(er => console.log(er));
   };
 
-
   useEffect(() => {
-    if(isFocused){
+    if (isFocused) {
       loadMessages();
     }
   }, [isFocused]);
 
   useEffect(() => {
-    if(messages.length < 1){
+    if (messages.length < 1) {
       loadMessages();
-      console.log('========')
+      console.log('========');
     }
   });
 
